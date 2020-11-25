@@ -29,5 +29,8 @@ RUN mkdir logs && \
     chgrp -R 0 ftp/ frontend/dist/ logs/ data/ i18n/ && \
     chmod -R g=u ftp/ frontend/dist/ logs/ data/ i18n/
 USER 1001
+ENV hdiv.config.dir=Hdiv/license
+ENV hdiv.server.name=juiceshop
+ENV hdiv.toolbar.enabled=true
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["node", "Hdiv/agent/nodejs/package/hdiv-nodejs-agent.js", "app.js"]
