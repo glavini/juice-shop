@@ -29,8 +29,12 @@ RUN mkdir logs && \
     chgrp -R 0 ftp/ frontend/dist/ logs/ data/ i18n/ && \
     chmod -R g=u ftp/ frontend/dist/ logs/ data/ i18n/
 USER 1001
-ENV hdiv.config.dir=Hdiv/license
-ENV hdiv.server.name=juiceshop
-ENV hdiv.toolbar.enabled=true
+ENV HDIV_CONFIG_DIR=Hdiv/license
+ENV HDIV_SERVER_NAME=juiceshop
+ENV HDIV_TOOLBAR_ENABLED=true
+#Hdiv Console
+#ENV HDIV_CONSOLE_URL=http://localhost:8089/hdiv-console-services
+#ENV HDIV_CONSOLE_TOKEN=e781990ff291c0D693c45fd3
+
 EXPOSE 3000
 CMD ["node", "Hdiv/agent/nodejs/package/hdiv-nodejs-agent.js", "app.js"]
